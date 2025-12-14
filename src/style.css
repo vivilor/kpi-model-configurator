@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+
+
+:root {
+  font-family: "PT Root UI";
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  @apply w-screen h-screen flex flex-col items-stretch;
+}
+
+#app {
+  @apply w-screen h-screen flex flex-col items-stretch;
+}
+
