@@ -1,7 +1,7 @@
 import { useStorage } from "@vueuse/core"
-import type { ChartOptions } from "chart.js"
+import type { ChartData, ChartOptions } from "chart.js"
 import { computed } from "vue"
-import { useRangedValue } from "./use-ranged-value"
+import { useXBonusDeny } from "./use-x-bonus-deny"
 
 export const useMethodLinearBased = (params: { keyPrefix: string }) => {
   const label = 'Линейный'
@@ -13,16 +13,83 @@ export const useMethodLinearBased = (params: { keyPrefix: string }) => {
   const visible = useStorage(createKey('visible'), true)
 
   const calculateQuarterBonusCoeff = (result: number) => {
+    if (result <= xBonusDeny.pos.value) {
+      return 0
+    }
+
     return result
   }
 
-  const xBonusDeny = useRangedValue({
-    keyPrefix,
-    key: 'xBonusDeny',
-    min: 0,
-    step: 0.01,
-    max: 2,
+  const xBonusDeny = useXBonusDeny({
+    keyPrefix
   })
+
+
+  const chartData = computed<ChartData>(() => ({
+    datasets: [
+      {
+        data: [
+          {
+            x: xBonusDeny.pos.value,
+            y: xBonusDeny.pos.value,
+          },
+          {
+            x: 2,
+            y: 2
+          }
+        ],
+        borderColor: '#aaaaaa',
+        tension: 0,
+        fill: false,
+        pointRadius: 0,
+        borderWidth: 2
+      },
+      {
+        data: [
+          {
+            x: 0,
+            y: 0
+          },
+          {
+            x: xBonusDeny.pos.value,
+            y: xBonusDeny.pos.value,
+          }
+        ],
+        borderColor: '#aa1100',
+        tension: 0,
+        fill: false,
+        pointRadius: 0,
+        borderWidth: 2
+      },
+      {
+        data: [
+          {
+            x: 0,
+            y: xBonusDeny.pos.value,
+          },
+          {
+            x: xBonusDeny.pos.value,
+            y: xBonusDeny.pos.value,
+          },
+          {
+            x: xBonusDeny.pos.value,
+            y: 0,
+          }
+        ],
+        pointBackgroundColor: '#aa1100',
+        pointBorderColor: '#fff',
+        pointBorderWidth: '2',
+        pointRadius: 5,
+        borderRadius: 1,
+        borderDash: [10, 5],
+        borderCapStyle: 'round',
+        fill: true,
+        backgroundColor: '#aa110011',
+        borderColor: '#aa110088'
+      }
+    ]
+  }
+  ))
 
   const chartOptions = computed<ChartOptions>(() => {
     const documentStyle = getComputedStyle(document.documentElement);
@@ -85,6 +152,7 @@ export const useMethodLinearBased = (params: { keyPrefix: string }) => {
   return {
     label,
     visible,
+    chartData,
     chartOptions,
     xBonusDeny,
     calculateQuarterBonusCoeff,

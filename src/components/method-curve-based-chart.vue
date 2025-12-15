@@ -156,14 +156,14 @@ const { chartOptions, chartData, xBonusDeny, A, B, lockAToLine, lockBToLine, P }
         График настройки двойной кривой
       </template>
       <template #default>
-        <Chart type="line" :data="chartData" :options="chartOptions" />
+        <Chart class="min-h-96" type="line" :data="chartData" :options="chartOptions" />
       </template>
     </Fieldset>
 
 
     <Fieldset>
       <template #legend>
-        Точка лишения премии
+        <b class="text-red-400">Точка лишения премии</b>
       </template>
 
       <template #default>

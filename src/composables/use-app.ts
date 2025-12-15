@@ -70,14 +70,14 @@ export const useApp = () => {
             borderWidth: 1,
             barThickness: 20
           }] : [],
-          ...Method.Accum.visible.value ? [{
-            label: 'Корелляция',
-            data: resultBonusesByYearMethodAccum.value,
-            backgroundColor: ['#a307ab33'],
-            borderColor: ['#a307ab'],
-            borderWidth: 1,
-            barThickness: 20
-          }] : [],
+          // ...Method.Accum.visible.value ? [{
+          //   label: 'Корелляция',
+          //   data: resultBonusesByYearMethodAccum.value,
+          //   backgroundColor: ['#a307ab33'],
+          //   borderColor: ['#a307ab'],
+          //   borderWidth: 1,
+          //   barThickness: 20
+          // }] : [],
         ]
       })),
       options: computed<ChartOptions>(() => {
@@ -87,6 +87,8 @@ export const useApp = () => {
         const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
 
         return {
+          responsive: true,
+          maintainAspectRatio: false,
           animation: {
             easing: "linear",
             duration: 0

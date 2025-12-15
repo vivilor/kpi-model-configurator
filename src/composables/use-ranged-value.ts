@@ -42,8 +42,8 @@ export const useRangedValue = (params: {
 
   const [connectMin, disconnectMin] = useRefConnection(min)
   const [connectMax, disconnectMax] = useRefConnection(max)
-  const [connectStep, disconnectStep] = useRefConnection(min)
-  const [connectPos, disconnectPos] = useRefConnection(min)
+  const [connectStep, disconnectStep] = useRefConnection(step)
+  const [connectPos, disconnectPos] = useRefConnection(pos)
 
   return {
 

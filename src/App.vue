@@ -18,7 +18,7 @@ const onRandomizeClick = () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-12 flex-auto w-7xl mx-auto pt-6 gap-4">
+  <div class="grid grid-cols-12 flex-auto w-[80%] mx-auto p-6 gap-4">
     <div class="col-span-7 flex flex-col gap-4">
 
       <CardSalaryAndBonus />

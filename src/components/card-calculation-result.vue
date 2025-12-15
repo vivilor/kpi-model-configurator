@@ -37,10 +37,10 @@ const inRub = new Intl.NumberFormat("ru-RU", { style: "currency", maximumFractio
           </KitCheckbox>
         </div>
 
-        <Chart type="bar" :data="data" :options="options" />
+        <Chart type="bar" class="h-96" :data="data" :options="options" />
 
         <div class="flex justify-between mt-4 gap-2 items-start">
-          <div class="flex flex-col gap-2 items-start">
+          <div class="flex flex-col gap-2 items-start font-mono">
             <div class="flex gap-2 items-end">
               <b class="text-4xl text-[#f97415]">
                 {{ inRub.format(App.resultBonusesByYearMethodStepsSum.value) }}
@@ -59,12 +59,12 @@ const inRub = new Intl.NumberFormat("ru-RU", { style: "currency", maximumFractio
               </b>
               <div>Плавным</div>
             </div>
-            <div class="flex gap-2 items-end" v-if="App.Method.Accum.visible.value">
+            <!-- <div class="flex gap-2 items-end" v-if="App.Method.Accum.visible.value">
               <b class="text-4xl text-[#a307ab]">
                 {{ inRub.format(App.resultBonusesByYearMethodAccumSum.value) }}
               </b>
               <div>Корелляцией</div>
-            </div>
+            </div> -->
           </div>
           <div class="flex gap-2 items-end">
             <div>Шанс сценария</div>
