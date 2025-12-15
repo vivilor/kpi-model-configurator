@@ -111,10 +111,11 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
 
   const calculateCurvePoint = (x: number, p: ReturnType<typeof usePositionedPoint>) => {
     const startX = P.X.min.value
+    const startY = P.Y.min.value
     const endX = p.X.max.value
 
     const xC = (p.X.pos.value - startX) / (endX - startX)
-    const yC = (p.Y.pos.value - startX) / (endX - startX)
+    const yC = (p.Y.pos.value - startY) / (endX - startX)
 
     const t = yC - xC
 
