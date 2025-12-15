@@ -44,6 +44,9 @@ const chartOptions = computed<ChartOptions>(() => {
   return {
     responsive: true,
     maintainAspectRatio: true,
+    animation: {
+      duration: 0,
+    },
     plugins: {
       legend: {
         display: false,

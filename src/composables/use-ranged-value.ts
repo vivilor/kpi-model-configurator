@@ -1,4 +1,4 @@
-import type { MaybeRef } from "vue"
+import { watch, type MaybeRef } from "vue"
 import { makeRef } from "../utils"
 import { useRefConnection } from "./use-ref-connection"
 
@@ -19,6 +19,26 @@ export const useRangedValue = (params: {
   const max = makeRef(createKey('max'), params?.max, 1)
   const step = makeRef(createKey('step'), params?.step, 0.01)
   const pos = makeRef(createKey('pos'), params?.pos, 0.5)
+
+  watch(min, v => {
+    if (pos.value < v) {
+      pos.value = v
+    }
+
+    if (max.value < min.value) {
+      max.value = min.value
+    }
+  })
+
+  watch(max, v => {
+    if (pos.value > v) {
+      pos.value = v
+    }
+
+    if (max.value < min.value) {
+      min.value = max.value
+    }
+  })
 
   const [connectMin, disconnectMin] = useRefConnection(min)
   const [connectMax, disconnectMax] = useRefConnection(max)

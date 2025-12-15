@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Card, Tab, TabList, TabPanel, TabPanels, Tabs } from 'primevue';
-import MethodStepsBasedTab from './method-steps-based-tab.vue';
-import MethodCurveBasedTab from './method-curve-based-tab.vue';
 import { inject } from 'vue';
+import MethodCurveBasedTab from './method-curve-based-tab.vue';
+import MethodStepsBasedTab from './method-steps-based-tab.vue';
+import MethodLinearBasedTab from './method-linear-based-tab.vue';
 
 const App = inject('App')
 
@@ -24,6 +25,8 @@ const { methodTab, methodTabs } = App
         <TabPanels>
           <MethodStepsBasedTab />
 
+          <MethodLinearBasedTab />
+
           <MethodCurveBasedTab />
 
           <TabPanel value="Accum">
@@ -34,16 +37,6 @@ const { methodTab, methodTabs } = App
               ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
               eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius
               modi.
-            </p>
-          </TabPanel>
-          <TabPanel value="Linear">
-            <p class="m-0">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-              deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-              provident, similique sunt in culpa
-              qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
-              et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-              quo minus.
             </p>
           </TabPanel>
         </TabPanels>

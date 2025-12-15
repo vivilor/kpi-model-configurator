@@ -23,8 +23,8 @@ const chartData = computed<ChartData>(() => ({
       ],
       borderColor: '#aaaaaa',
       tension: 0,
-      fill: true,
-      pointRadius: 1,
+      fill: false,
+      pointRadius: 0,
       borderWidth: 2
     },
   ]
@@ -82,7 +82,7 @@ const chartOptions: ChartOptions = {
 <template>
   <Fieldset>
     <template #legend>
-      График настройки двойной кривой
+      График линейный <span class="font-serif italic">y = x</span>
     </template>
     <template #default>
       <Chart type="line" :data="chartData" :options="chartOptions" />
