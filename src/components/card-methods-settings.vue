@@ -20,7 +20,7 @@ const { methodTab, methodTabs } = App
     <template #content>
       <Tabs v-model:value="methodTab">
         <TabList>
-          <Tab v-for="t in methodTabs" :key="t.name" :value="t.name">{{ t.label }}</Tab>
+          <Tab v-for="t in methodTabs.slice(0, 3)" :key="t.name" :value="t.name">{{ t.label }}</Tab>
         </TabList>
         <TabPanels>
           <MethodStepsBasedTab />

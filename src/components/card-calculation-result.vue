@@ -32,9 +32,9 @@ const inRub = new Intl.NumberFormat("ru-RU", { style: "currency", maximumFractio
           <KitCheckbox v-model="Method.Curve.visible.value" binary>
             Плавный
           </KitCheckbox>
-          <KitCheckbox v-model="Method.Accum.visible.value" binary>
+          <!-- <KitCheckbox v-model="Method.Accum.visible.value" binary>
             Корелляция
-          </KitCheckbox>
+          </KitCheckbox> -->
         </div>
 
         <Chart type="bar" class="h-96" :data="data" :options="options" />
