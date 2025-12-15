@@ -40,13 +40,11 @@ const onRandomizeClick = () => {
             <div class="flex gap-2">
             </div>
           </div>
-          <div class="flex gap-4 w-full">
-
-
-            <FieldsetQuarterResult quarter="I" />
-            <FieldsetQuarterResult quarter="II" />
-            <FieldsetQuarterResult quarter="III" />
-            <FieldsetQuarterResult quarter="IV" />
+          <div class="grid gap-4 w-full grid-cols-4">
+            <FieldsetQuarterResult class="flex-1 shrink-0" quarter="I" />
+            <FieldsetQuarterResult class="flex-1 shrink-0" quarter="II" />
+            <FieldsetQuarterResult class="flex-1 shrink-0" quarter="III" />
+            <FieldsetQuarterResult class="flex-1 shrink-0" quarter="IV" />
           </div>
         </template>
       </Card>

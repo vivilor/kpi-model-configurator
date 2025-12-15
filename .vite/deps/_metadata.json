@@ -2,7 +2,31 @@
   "hash": "f587287a",
   "configHash": "9e58e80f",
   "lockfileHash": "1574a1a8",
-  "browserHash": "cdf91d60",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "1c9eac4a",
+  "optimized": {
+    "@primeuix/themes/aura": {
+      "src": "../../node_modules/@primeuix/themes/dist/aura/index.mjs",
+      "file": "@primeuix_themes_aura.js",
+      "fileHash": "a52c1c7e",
+      "needsInterop": false
+    },
+    "primevue/config": {
+      "src": "../../node_modules/primevue/config/index.mjs",
+      "file": "primevue_config.js",
+      "fileHash": "f356e256",
+      "needsInterop": false
+    },
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "986d0122",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "vue.runtime.esm-bundler-C-fpSPyj": {
+      "file": "vue.runtime.esm-bundler-C-fpSPyj.js",
+      "isDynamicEntry": false
+    }
+  }
 }

@@ -39,7 +39,7 @@ export const useApp = () => {
   const resultBonusesByYearMethodAccum = computed(() => Object.values(QuarterResult).map(({ result }) => CaseParameters.calculateQuarterBonus(Method.Accum.calculateQuarterBonusCoeff(result.pos.value))))
   const resultBonusesByYearMethodAccumSum = computed(() => resultBonusesByYearMethodAccum.value.reduce((a, b) => a + b, 0))
   const resultBonusesByYearMethodLinear = computed(() => Object.values(QuarterResult).map(({ result }) => CaseParameters.calculateQuarterBonus(Method.Linear.calculateQuarterBonusCoeff(result.pos.value))))
-  const resultBonusesByYearMethodLinearSum = computed(() => resultBonusesByYearMethodAccum.value.reduce((a, b) => a + b, 0))
+  const resultBonusesByYearMethodLinearSum = computed(() => resultBonusesByYearMethodLinear.value.reduce((a, b) => a + b, 0))
 
   const Chart = {
     Result: {
