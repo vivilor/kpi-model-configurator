@@ -14,7 +14,7 @@ export const useQuarterResult = (params: {
   const visible = ref(false)
 
   const { title } = params
-  const result = useRangedValue({ keyPrefix, key: 'result', min: 0, max: 2, step: 0.01, pos: params?.defaultValue })
+  const result = useRangedValue({ keyPrefix, key: 'result', min: 0, max: 4, step: 0.01, pos: params?.defaultValue })
 
   const prob = computed(() => Dist.getDistributionValue(result.pos.value))
 

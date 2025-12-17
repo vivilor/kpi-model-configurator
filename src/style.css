@@ -11,6 +11,10 @@
   font-size: 16px;
 }
 
+* {
+  font-family: "PT Root UI, Helvetica, sans-serif";
+}
+
 body {
   @apply w-screen h-screen flex flex-col items-stretch;
 }

@@ -16,7 +16,7 @@ export const useMethodStepsBased = (params: { keyPrefix: string }) => {
     Base: usePositionedPoint({ keyPrefix, key: 'Base', label: 'База', posX: 1, posY: 1 }),
     Excess1: usePositionedPoint({ keyPrefix, key: 'Excess1', label: 'Перевып. 1', posX: 1.5, posY: 1.25 }),
     Excess2: usePositionedPoint({ keyPrefix, key: 'Excess2', label: 'Перевып. 2', posX: 1.75, posY: 1.5 }),
-    Ambitious: usePositionedPoint({ keyPrefix, key: 'Ambitious', label: 'АмЦель', maxX: 2, maxY: 2, posX: 2, posY: 2 }),
+    Ambitious: usePositionedPoint({ keyPrefix, key: 'Ambitious', label: 'АмЦель', maxX: 4, maxY: 4, posX: 2, posY: 2 }),
   }
 
   Point.Minimal.X.connectMax(Point.Base.X.pos)

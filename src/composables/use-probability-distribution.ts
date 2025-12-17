@@ -20,12 +20,12 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
   const y2 = useStorage(createKey('y2'), 1)
 
   // Точка 3: конечная (x3, y3)
-  const x3 = useStorage(createKey('x3'), 2)
+  const x3 = useStorage(createKey('x3'), 4)
   const y3 = useStorage(createKey('y3'), 0)
 
   // Ограничения для точек
   const minX = ref(0)
-  const maxX = ref(2)
+  const maxX = ref(4)
   const minY = ref(0)
   const maxY = ref(1) // 100% = 1.0
 
@@ -71,8 +71,8 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
     // Решаем квадратное уравнение относительно t
 
     // Коэффициенты квадратного уравнения: a*t² + b*t + c = 0
-    const a = x1.value - 2 * x2.value + x3.value
-    const b = 2 * (x2.value - x1.value)
+    const a = x1.value - 4 * x2.value + x3.value
+    const b = 4 * (x2.value - x1.value)
     const c = x1.value - x
 
     let t: number
@@ -124,7 +124,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       const t = (x - x2.value) / (x3.value - x2.value)
       // Линейная интерполяция с учетом контрольной точки
       const controlInfluence = (y3.value - y2.value) * t
-      return y2.value + controlInfluence * (2 - t) / 2
+      return y2.value + controlInfluence * (4 - t) / 2
     }
   }
 
@@ -337,7 +337,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       y1.value = 0
       x2.value = 1
       y2.value = 1
-      x3.value = 2
+      x3.value = 4
       y3.value = 0
     },
 
@@ -347,7 +347,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       y1.value = 0.5
       x2.value = 1
       y2.value = 0.5
-      x3.value = 2
+      x3.value = 4
       y3.value = 0.5
     },
 
@@ -356,7 +356,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       y1.value = 0
       x2.value = 1
       y2.value = 1
-      x3.value = 2
+      x3.value = 4
       y3.value = 0
     },
 
@@ -365,7 +365,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       y1.value = 1
       x2.value = 0.5
       y2.value = 0.5
-      x3.value = 2
+      x3.value = 4
       y3.value = 0
     },
 
@@ -374,7 +374,7 @@ export const useProbabilityDistribution = (params: { keyPrefix: string }) => {
       y1.value = 0
       x2.value = 1.5
       y2.value = 0.5
-      x3.value = 2
+      x3.value = 4
       y3.value = 1
     }
   }

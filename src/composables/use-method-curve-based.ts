@@ -47,10 +47,10 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
     key: 'B',
     minX: P.X.pos, // Связываем минимальный X с позицией P
     minY: P.Y.pos, // Связываем минимальный Y с позицией P
-    posX: 1.7,
-    maxX: 2,
-    posY: 1.7,
-    maxY: 2,
+    posX: 3.7,
+    maxX: 4,
+    posY: 3.7,
+    maxY: 4,
   })
 
   // Исправленные функции для привязки к линиям
@@ -73,8 +73,8 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
       return
     }
 
-    const dx = 2 - P.X.pos.value
-    const dy = 2 - P.Y.pos.value
+    const dx = 4 - P.X.pos.value
+    const dy = 4 - P.Y.pos.value
 
     if (dx <= 0 || dy <= 0) {
       return
@@ -177,7 +177,7 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
 
   // Точки для второй кривой (от P до 2,2)
   const secondCurvePoints = computed(() =>
-    calculateCurve(P.X.pos.value, P.Y.pos.value, 2, 2, B.X.pos.value, B.Y.pos.value)
+    calculateCurve(P.X.pos.value, P.Y.pos.value, 4, 4, B.X.pos.value, B.Y.pos.value)
   )
 
   // Функция для расчета бонусного коэффициента
@@ -323,8 +323,8 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
         type: 'line',
         label: 'Линия для B',
         data: [
-          { x: P.X.pos.value, y: 2 },
-          { x: 2, y: P.Y.pos.value }
+          { x: P.X.pos.value, y: 4 },
+          { x: 4, y: P.Y.pos.value }
         ],
         borderWidth: 1,
         borderColor: '#ffffff33',
@@ -339,7 +339,7 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
         label: 'y = x',
         data: [
           { x: 0, y: 0 },
-          { x: 2, y: 2 }
+          { x: 4, y: 4 }
         ],
         borderColor: '#9E9E9E',
         borderDash: [5, 5],
@@ -388,7 +388,6 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
         type: 'linear',
         position: 'bottom',
         min: 0,
-        max: 2,
         title: {
           display: true,
           text: 'Уровень выполнения показателя'
@@ -402,7 +401,6 @@ export const useMethodCurveBased = (params: { keyPrefix: string }) => {
       },
       y: {
         min: 0,
-        max: 2,
         title: {
           display: true,
           text: 'Размер коэффициента выполнения КПЭ'

@@ -34,8 +34,8 @@ export const useMethodLinearBased = (params: { keyPrefix: string }) => {
             y: xBonusDeny.pos.value,
           },
           {
-            x: 2,
-            y: 2
+            x: 4,
+            y: 4
           }
         ],
         borderColor: '#aaaaaa',
@@ -116,7 +116,6 @@ export const useMethodLinearBased = (params: { keyPrefix: string }) => {
       scales: {
         x: {
           min: 0,
-          max: 2,
           type: 'linear',
           beginAtZero: true,
           title: {
@@ -132,7 +131,6 @@ export const useMethodLinearBased = (params: { keyPrefix: string }) => {
         },
         y: {
           min: 0,
-          max: 2,
           title: {
             display: true,
             text: 'Размер коэффициента выполнения КПЭ'

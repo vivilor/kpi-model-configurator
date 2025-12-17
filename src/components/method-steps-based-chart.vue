@@ -60,7 +60,6 @@ const chartOptions = computed<ChartOptions>(() => {
     scales: {
       x: {
         min: 0,
-        max: 2,
         type: 'linear',
         beginAtZero: true,
         title: {
@@ -76,7 +75,6 @@ const chartOptions = computed<ChartOptions>(() => {
       },
       y: {
         min: 0,
-        max: 2,
         title: {
           display: true,
           text: 'Размер коэффициента выполнения КПЭ'
